@@ -2,7 +2,13 @@
 <html>
   <head>
     <title>Code Quiz</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/style/style.css" />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
@@ -10,12 +16,40 @@
     <div>
       <button class="start-button">Start Game</button>
     </div>
-    <h1 id="quizTitle"></h1>
-    <h2 id="question1-question"></h2>
-    <button id="question1-A" onclick="answerQuestion('1990','1995')"></button>
-    <button id="question1-B" onclick="answerQuestion('1995','1995')"></button>
-    <button id="question1-C"></button>
-    <button id="question1-D"></button>
+    <h1 id="setTimer"></h1>
+    <div id="quizTitle"></div>
+
+    <div>
+      <h2 id="question1-question"></h2>
+      <button
+        id="question1-A"
+        class="btn btn-outline"
+        onclick="answerQuestion('1990','1995')"
+      ></button>
+      <button id="question1-B" onclick="answerQuestion('1995','1995')"></button>
+      <button id="question1-C"></button>
+      <button id="question1-D"></button>
+    </div>
+    <div>
+      <h2 id="question2-question"></h2>
+      <button
+        id="question2-A"
+        onclick="answerQuestion('false','true')"
+      ></button>
+      <button
+        id="question2-B"
+        onclick="answerQuestion('false','false')"
+      ></button>
+    </div>
+
+    <div>
+      <h2 id="question3-question"></h2>
+      <button
+        id="question3-A"
+        onclick="answerQuestion('true','false')"
+      ></button>
+      <button id="question3-B" onclick="answerQuestion('true','true')"></button>
+    </div>
 
     <script src="./assets/js/java.js"></script>
     <style></style>
