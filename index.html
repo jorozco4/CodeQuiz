@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <div id="start">Start Quiz!</div>
+    <div id="start"><button>Start Quiz!</button></div>
 
     <div id="quiz"></div>
     <div id="countdown"></div>
@@ -24,7 +24,7 @@
 
     <h1 class="time" style="text-align: center"></h1>
 
-    <div>
+    <div id="q1-section">
       <h2 id="question1-question"></h2>
       <ol class="A">
         <li>
@@ -38,9 +38,10 @@
       </ol>
       <p id="q1-correct">Correct Answer</p>
       <p id="q1-wrong">Wrong Answer</p>
+      <button id="question1-next">Next Question</button>
     </div>
 
-    <div>
+    <div id="q2-section">
       <h2 id="question2-question"></h2>
       <button
         id="question2-A"
@@ -50,18 +51,24 @@
         id="question2-B"
         onclick="answerQuestion('false','false')"
       ></button>
+      <p id="q2-correct">Correct Answer</p>
+      <p id="q2-wrong">Wrong Answer</p>
+      <button id="question2-next">Next Question</button>
     </div>
 
-    <div>
+    <div id="q3-section">
       <h2 id="question3-question"></h2>
       <button
         id="question3-A"
         onclick="answerQuestion('true','false')"
       ></button>
       <button id="question3-B" onclick="answerQuestion('true','true')"></button>
+      <p id="q3-correct">Correct Answer</p>
+      <p id="q3-wrong">Wrong Answer</p>
+      <button id="question3-next">Next Question</button>
     </div>
 
-    <div>
+    <div id="q4-section">
       <h2 id="question4-question"></h2>
       <ol type="A">
         <li>
@@ -80,6 +87,14 @@
         <li><button id="question4-C"></button></li>
         <li><button id="question4-D"></button></li>
       </ol>
+      <p id="q4-correct">Correct Answer</p>
+      <p id="q4-wrong">Wrong Answer</p>
+      <button id="finish-quiz">FINISHED!</button>
+    </div>
+
+    <div id="grading-section">
+      <h1>Your Total Score Is</h1>
+      <h2 id="final-grade"></h2>
     </div>
 
     <script src="./assets/js/java.js"></script>

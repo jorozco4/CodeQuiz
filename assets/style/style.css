@@ -25,3 +25,43 @@ div {
   color: red;
   display: none;
 }
+#q2-correct {
+  color: green;
+  display: none;
+}
+
+#q2-wrong {
+  color: red;
+  display: none;
+}
+#q3-correct {
+  color: green;
+  display: none;
+}
+
+#q3-wrong {
+  color: red;
+  display: none;
+}
+#q4-correct {
+  color: green;
+  display: none;
+}
+
+#q4-wrong {
+  color: red;
+  display: none;
+}
+
+#q1-section {
+  display: none;
+}
+#q2-section {
+  display: none;
+}
+#q3-section {
+  display: none;
+}
+#q4-section {
+  display: none;
+}

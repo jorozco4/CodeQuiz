@@ -3,8 +3,8 @@ let quizGenerator = document.getElementById("quizTitle");
 let viewResults = document.getElementById("result");
 let quizSubmit = document.getElementById("submit");
 let setTimer = document.getElementById("countdown");
-///TRY AND CREATE AN ARRAY HERE
 
+//This will set out the timer to countdown from 20 seconds
 let secondsLeft = 20;
 let downloadTimer = setInterval(function () {
   if (secondsLeft <= 0) {
@@ -35,7 +35,7 @@ function displayMessage() {
   }, 1000);
 }
 
-//This sections holds the answers inside the array
+//This sections holds the answers
 
 let questionOne = {
   question: "In what year was javascript invented?",
@@ -46,8 +46,7 @@ let questionOne = {
   answer: "1995",
 };
 
-//Create a function that takes in two parm. Parm1 is the selected option. And Parm2 is the correct answer. If parm1 is not equal to para2. Alery is wrong.
-
+//This holds whether the answer come out correct or incorrect
 function answerQuestion(optionSelected, correctAnswer) {
   if (optionSelected == correctAnswer) {
     return true;
@@ -62,6 +61,7 @@ document.getElementById("question1-B").innerHTML = questionOne.b;
 document.getElementById("question1-C").innerHTML = questionOne.c;
 document.getElementById("question1-D").innerHTML = questionOne.d;
 
+//This sections holds the answers
 let questionTwo = {
   question: "is javascript and java the same programming language?",
   a: true,
@@ -73,6 +73,7 @@ document.getElementById("question2-question").innerHTML = questionTwo.question;
 document.getElementById("question2-A").innerHTML = questionTwo.a;
 document.getElementById("question2-B").innerHTML = questionTwo.b;
 
+//This sections holds the answers
 let questionThree = {
   question:
     "Javascript can use the document.getElementById to acces an HTML element?",
@@ -86,6 +87,7 @@ document.getElementById("question3-question").innerHTML =
 document.getElementById("question3-A").innerHTML = questionThree.a;
 document.getElementById("question3-B").innerHTML = questionThree.b;
 
+//This sections holds the answers
 let questionFour = {
   question: "What does DOM stand for?",
   a: "Document Object Mission",
@@ -95,14 +97,13 @@ let questionFour = {
   answer: "Document Object Model",
 };
 
-//Create a function that takes in two parm. Parm1 is the selected option. And Parm2 is the correct answer. If parm1 is not equal to para2. Alery is wrong.
-
 document.getElementById("question4-question").innerHTML = questionFour.question;
 document.getElementById("question4-A").innerHTML = questionFour.a;
 document.getElementById("question4-B").innerHTML = questionFour.b;
 document.getElementById("question4-C").innerHTML = questionFour.c;
 document.getElementById("question4-D").innerHTML = questionFour.d;
 
+//This adds a comment underneath the questions verifying whether the answer is correct or incorrect
 $(document).ready(function () {
   $("#question1-A").click(function () {
     if (answerQuestion("1990", "1995")) {
@@ -117,7 +118,6 @@ $(document).ready(function () {
   $("#question1-B").click(function () {
     if (answerQuestion("1995", "1995")) {
       $("#q1-correct").show();
-      $("#test").hide();
       $("#q1-wrong").hide();
     } else {
       $("#q1-correct").hide();
@@ -139,13 +139,101 @@ $(document).ready(function () {
     $("#q1-correct").hide();
     $("#q1-wrong").show();
   });
+
+  $("#question2-A").click(function () {
+    if (answerQuestion("false", "true")) {
+      $("#q2-correct").show();
+      $("#q2-wrong").hide();
+    } else {
+      $("#q2-correct").hide();
+      $("#q2-wrong").show();
+    }
+  });
+
+  $("#question2-B").click(function () {
+    if (answerQuestion("false", "false")) {
+      $("#q2-correct").show();
+      $("#q2-wrong").hide();
+    } else {
+      $("#q2-correct").hide();
+      $("#q2-wrong").show();
+    }
+  });
+
+  $("#question3-A").click(function () {
+    if (answerQuestion("false", "true")) {
+      $("#q3-correct").show();
+      $("#q3-wrong").hide();
+    } else {
+      $("#q3-correct").hide();
+      $("#q3-wrong").show();
+    }
+  });
+
+  $("#question3-B").click(function () {
+    if (answerQuestion("false", "false")) {
+      $("#q3-correct").show();
+      $("#q3-wrong").hide();
+    } else {
+      $("#q3-correct").hide();
+      $("#q3-wrong").show();
+    }
+  });
+
+  $("#question4-A").click(function () {
+    if (answerQuestion("1990", "1995")) {
+      $("#q4-correct").show();
+      $("#q4-wrong").hide();
+    } else {
+      $("#q4-correct").hide();
+      $("#q4-wrong").show();
+    }
+  });
+
+  $("#question4-B").click(function () {
+    if (answerQuestion("1995", "1995")) {
+      $("#q4-correct").show();
+      $("#q4-wrong").hide();
+    } else {
+      $("#q4-correct").hide();
+      $("#q4-wrong").show();
+    }
+  });
+
+  $("#question4-C").click(function () {
+    if (answerQuestion("1990", "1995")) {
+      $("#q4-correct").show();
+      $("#q4-wrong").hide();
+    } else {
+      $("#q4-correct").hide();
+      $("#q4-wrong").show();
+    }
+  });
+
+  $("#question4-D").click(function () {
+    $("#q4-correct").hide();
+    $("#q4-wrong").show();
+  });
+
+  $("#start").click(function () {
+    $("#q1-section").show();
+  });
+
+  $("#question1-next").click(function () {
+    $("#q1-section").hide();
+    $("#q2-section").show();
+  });
+
+  $("#question2-next").click(function () {
+    $("#q2-section").hide();
+    $("#q3-section").show();
+  });
+  $("#question3-next").click(function () {
+    $("#q3-section").hide();
+    $("#q4-section").show();
+  });
+  $("#finish-quiz").click(function () {
+    $("#q4-section").hide();
+    $("#grading-section").show();
+  });
 });
-
-//gets the elements from the above questions.
-// function get(x) {
-//   return document.getElementById(x);
-// }
-
-// function renderQuestion() {
-//   let test = get(results);
-// }
