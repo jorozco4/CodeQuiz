@@ -5,7 +5,7 @@ let quizSubmit = document.getElementById("submit");
 let setTimer = document.getElementById("countdown");
 
 //This will set out the timer to countdown from 20 seconds
-let secondsLeft = 20;
+let secondsLeft = 30;
 let downloadTimer = setInterval(function () {
   if (secondsLeft <= 0) {
     clearInterval(downloadTimer);
@@ -16,9 +16,8 @@ let downloadTimer = setInterval(function () {
   }
   secondsLeft -= 1;
 
-  timerEl.textContent = "";
   clearInterval(clearInterval);
-  s;
+
   displayMessage();
 }, 1000);
 
@@ -103,15 +102,27 @@ document.getElementById("question4-B").innerHTML = questionFour.b;
 document.getElementById("question4-C").innerHTML = questionFour.c;
 document.getElementById("question4-D").innerHTML = questionFour.d;
 
+let quizSummary = {
+  question1: 0,
+  question2: 0,
+  question3: 0,
+  question4: 0,
+};
+let finalScore = 0;
+
 //This adds a comment underneath the questions verifying whether the answer is correct or incorrect
 $(document).ready(function () {
   $("#question1-A").click(function () {
     if (answerQuestion("1990", "1995")) {
       $("#q1-correct").show();
       $("#q1-wrong").hide();
+      //This section is keeping track of scores if its rigth 1 point
+      quizSummary.question1 = 1;
     } else {
       $("#q1-correct").hide();
       $("#q1-wrong").show();
+      //This section is keeping track of score if its wrong 0 points
+      quizSummary.question1 = 0;
     }
   });
 
@@ -119,9 +130,11 @@ $(document).ready(function () {
     if (answerQuestion("1995", "1995")) {
       $("#q1-correct").show();
       $("#q1-wrong").hide();
+      quizSummary.question1 = 1;
     } else {
       $("#q1-correct").hide();
       $("#q1-wrong").show();
+      quizSummary.question1 = 0;
     }
   });
 
@@ -129,24 +142,29 @@ $(document).ready(function () {
     if (answerQuestion("1990", "1995")) {
       $("#q1-correct").show();
       $("#q1-wrong").hide();
+      quizSummary.question1 = 1;
     } else {
       $("#q1-correct").hide();
       $("#q1-wrong").show();
+      quizSummary.question1 = 0;
     }
   });
 
   $("#question1-D").click(function () {
     $("#q1-correct").hide();
     $("#q1-wrong").show();
+    quizSummary.question1 = 0;
   });
 
   $("#question2-A").click(function () {
     if (answerQuestion("false", "true")) {
       $("#q2-correct").show();
       $("#q2-wrong").hide();
+      quizSummary.question2 = 1;
     } else {
       $("#q2-correct").hide();
       $("#q2-wrong").show();
+      quizSummary.question2 = 0;
     }
   });
 
@@ -154,9 +172,11 @@ $(document).ready(function () {
     if (answerQuestion("false", "false")) {
       $("#q2-correct").show();
       $("#q2-wrong").hide();
+      quizSummary.question2 = 1;
     } else {
       $("#q2-correct").hide();
       $("#q2-wrong").show();
+      quizSummary.question2 = 0;
     }
   });
 
@@ -164,9 +184,11 @@ $(document).ready(function () {
     if (answerQuestion("false", "true")) {
       $("#q3-correct").show();
       $("#q3-wrong").hide();
+      quizSummary.question3 = 1;
     } else {
       $("#q3-correct").hide();
       $("#q3-wrong").show();
+      quizSummary.question3 = 0;
     }
   });
 
@@ -174,9 +196,11 @@ $(document).ready(function () {
     if (answerQuestion("false", "false")) {
       $("#q3-correct").show();
       $("#q3-wrong").hide();
+      quizSummary.question3 = 1;
     } else {
       $("#q3-correct").hide();
       $("#q3-wrong").show();
+      quizSummary.question3 = 0;
     }
   });
 
@@ -184,9 +208,11 @@ $(document).ready(function () {
     if (answerQuestion("1990", "1995")) {
       $("#q4-correct").show();
       $("#q4-wrong").hide();
+      quizSummary.question4 = 1;
     } else {
       $("#q4-correct").hide();
       $("#q4-wrong").show();
+      quizSummary.question4 = 0;
     }
   });
 
@@ -194,9 +220,11 @@ $(document).ready(function () {
     if (answerQuestion("1995", "1995")) {
       $("#q4-correct").show();
       $("#q4-wrong").hide();
+      quizSummary.question4 = 1;
     } else {
       $("#q4-correct").hide();
       $("#q4-wrong").show();
+      quizSummary.question4 = 0;
     }
   });
 
@@ -204,15 +232,18 @@ $(document).ready(function () {
     if (answerQuestion("1990", "1995")) {
       $("#q4-correct").show();
       $("#q4-wrong").hide();
+      quizSummary.question4 = 1;
     } else {
       $("#q4-correct").hide();
       $("#q4-wrong").show();
+      quizSummary.question4 = 0;
     }
   });
 
   $("#question4-D").click(function () {
     $("#q4-correct").hide();
     $("#q4-wrong").show();
+    quizSummary.question4 = 0;
   });
 
   $("#start").click(function () {
@@ -235,5 +266,16 @@ $(document).ready(function () {
   $("#finish-quiz").click(function () {
     $("#q4-section").hide();
     $("#grading-section").show();
+
+    //This section adds up the score
+    console.log(quizSummary);
+    finalScore =
+      quizSummary.question1 +
+      quizSummary.question2 +
+      quizSummary.question3 +
+      quizSummary.question4;
+
+    //This sections pushes the final score
+    document.getElementById("final-grade").innerHTML = finalScore;
   });
 });
