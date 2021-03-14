@@ -3,70 +3,37 @@ let quizGenerator = document.getElementById("quizTitle");
 let viewResults = document.getElementById("result");
 let quizSubmit = document.getElementById("submit");
 let setTimer = document.getElementById("countdown");
+///TRY AND CREATE AN ARRAY HERE
 
-const secondsLeft = 10;
+let secondsLeft = 20;
+let downloadTimer = setInterval(function () {
+  if (secondsLeft <= 0) {
+    clearInterval(downloadTimer);
+    document.getElementById("countdown").innerHTML = "TIME IS UP";
+  } else {
+    document.getElementById("countdown").innerHTML =
+      secondsLeft + " seconds remaining";
+  }
+  secondsLeft -= 1;
 
-function setTime() {
-  const timerInterval = setInterval(function () {
-    secondsLeft--;
-    timerEl.textContent = secondsLeft + " countdown until the next question.";
+  timerEl.textContent = "";
+  clearInterval(clearInterval);
+  s;
+  displayMessage();
+}, 1000);
 
-    if (secondsLeft === 0) {
-      clearInterval(timerInterval);
+function displayMessage() {
+  let wordCount = 0;
 
-      sendMessage();
+  let msgInterval = setInterval(function () {
+    if (words[wordCount] === undefined) {
+      clearInterval(msgInterval);
+    } else {
+      mainEl.textContent = words[wordCount];
+      wordCount++;
     }
   }, 1000);
 }
-
-// Function to create and append colorsplosion image
-function sendMessage() {
-  timerEl.textContent = " ";
-  var imgEl = document.createElement("img");
-  timerEl.setAttribute("src", "question2-question");
-  mainEl.appendChild(imgEl);
-}
-
-setTime();
-
-// let quizTitle = "This is my quiz";
-// document.getElementById("quizTitle").innerHTML = quizTitle;
-
-// const startingMinutes = 1;
-// let time = startingMinutes * 60;
-
-// const countdownEl = document.getElementById("countdown");
-
-// setInterval(updateCountdown, 1000);
-
-// function updateCountdown() {
-//   const minutes = Math.floor(time / 60);
-//   let seconds = time % 60;
-
-//   countdownEl.innerHTML = "${minutes}:${seconds}";
-//   time--;
-// }
-// function myFunction() {
-//   var x = document.createElement("start-button");
-//   x.setAttribute("type", "number");
-//   x.setAttribute("value", "12345");
-//   document.body.appendChild(x);
-// }
-
-// function countdown() {
-//     var timeLeft = 10;
-//     var timeInterval = setInterval(function () {
-//       timeLeft--;
-//       timerEl.textContent = timeLeft + " seconds left ";
-//       if (timeLeft === 0) {
-//         clearInterval(timeInterval);
-
-//       }
-//     }, 1000);
-
-//     document.querySelector('button1').addEventListener('click', function() {
-//       var userAdjective = prompt("Please provide an Adjective");
-//       alert (userAdjective);
 
 //This sections holds the answers inside the array
 
@@ -83,9 +50,9 @@ let questionOne = {
 
 function answerQuestion(optionSelected, correctAnswer) {
   if (optionSelected == correctAnswer) {
-    alert("Correct Answer");
+    return true;
   } else {
-    alert("Wrong Answer");
+    return false;
   }
 }
 
@@ -102,14 +69,6 @@ let questionTwo = {
   answer: "false",
 };
 
-function answerQuestionTwo(optionSelected, correctAnswer) {
-  if (optionSelected == correctAnswer) {
-    alert("Correct Answer");
-  } else {
-    alert("Wrong Answer");
-  }
-}
-
 document.getElementById("question2-question").innerHTML = questionTwo.question;
 document.getElementById("question2-A").innerHTML = questionTwo.a;
 document.getElementById("question2-B").innerHTML = questionTwo.b;
@@ -122,24 +81,71 @@ let questionThree = {
   answer: "true",
 };
 
-function answerQuestionThree(optionSelected, correctAnswer) {
-  if (optionSelected == correctAnswer) {
-    alert("Correct Answer");
-  } else {
-    alert("Wrong Answer");
-  }
-}
-
 document.getElementById("question3-question").innerHTML =
   questionThree.question;
 document.getElementById("question3-A").innerHTML = questionThree.a;
 document.getElementById("question3-B").innerHTML = questionThree.b;
 
-//gets the elements from the above questions.
-function get(x) {
-  return document.getElementById(x);
-}
+let questionFour = {
+  question: "What does DOM stand for?",
+  a: "Document Object Mission",
+  b: "Document Object Model",
+  c: "Dominos Or Max Pizza",
+  d: "Donuts or MacnChz",
+  answer: "Document Object Model",
+};
 
-function renderQuestion() {
-  let test = get(results);
-}
+//Create a function that takes in two parm. Parm1 is the selected option. And Parm2 is the correct answer. If parm1 is not equal to para2. Alery is wrong.
+
+document.getElementById("question4-question").innerHTML = questionFour.question;
+document.getElementById("question4-A").innerHTML = questionFour.a;
+document.getElementById("question4-B").innerHTML = questionFour.b;
+document.getElementById("question4-C").innerHTML = questionFour.c;
+document.getElementById("question4-D").innerHTML = questionFour.d;
+
+$(document).ready(function () {
+  $("#question1-A").click(function () {
+    if (answerQuestion("1990", "1995")) {
+      $("#q1-correct").show();
+      $("#q1-wrong").hide();
+    } else {
+      $("#q1-correct").hide();
+      $("#q1-wrong").show();
+    }
+  });
+
+  $("#question1-B").click(function () {
+    if (answerQuestion("1995", "1995")) {
+      $("#q1-correct").show();
+      $("#test").hide();
+      $("#q1-wrong").hide();
+    } else {
+      $("#q1-correct").hide();
+      $("#q1-wrong").show();
+    }
+  });
+
+  $("#question1-C").click(function () {
+    if (answerQuestion("1990", "1995")) {
+      $("#q1-correct").show();
+      $("#q1-wrong").hide();
+    } else {
+      $("#q1-correct").hide();
+      $("#q1-wrong").show();
+    }
+  });
+
+  $("#question1-D").click(function () {
+    $("#q1-correct").hide();
+    $("#q1-wrong").show();
+  });
+});
+
+//gets the elements from the above questions.
+// function get(x) {
+//   return document.getElementById(x);
+// }
+
+// function renderQuestion() {
+//   let test = get(results);
+// }

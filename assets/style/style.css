@@ -1,8 +1,27 @@
 button {
   background-color: purple;
   color: white;
+  font-size: large;
 }
 
-h2 {
-  align-items: center;
+body {
+  text-align: center;
+}
+
+#countdown {
+  text-align: right;
+}
+
+div {
+  background-color: powderblue;
+}
+
+#q1-correct {
+  color: green;
+  display: none;
+}
+
+#q1-wrong {
+  color: red;
+  display: none;
 }
