@@ -1,6 +1,6 @@
-# Homework-4-CodeQuiz
+# CodeQuiz
 
-For this assignment the goal was to create a quiz generator.
+The goal for this task was to creat a quiz generator. I hope you enjoy.
 
 GIVEN I am taking a code quiz
 WHEN I click the start button
